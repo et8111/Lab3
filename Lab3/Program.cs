@@ -8,10 +8,8 @@ namespace Lab3
 {
     class Program
     {
-        static string choice()
+        static string choice(int num)
             {
-            Console.Write("Enter a Number: ");
-            int num = int.Parse(Console.ReadLine());
             string s = "";
 
             if (num % 2 == 0 && num > 60)
@@ -31,7 +29,14 @@ namespace Lab3
             string test = "y";
             while (test == "y")
             {
-                Console.WriteLine(choice());
+                Console.Write("Enter a Number: ");
+                int num = int.Parse(Console.ReadLine());
+                if (num < 1 || num > 100)
+                {
+                    Console.WriteLine("Invalid Entry (1-100)");
+                    continue;
+                }
+                Console.WriteLine(choice(num));
                 Console.Write("\nAgain (y/n)?: ");
                 test = Console.ReadLine();
                 if (test == "y")
